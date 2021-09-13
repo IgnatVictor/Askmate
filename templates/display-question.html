@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block page_title %} Main page {% endblock %}
+
+
+{% block content %}
+
+    <br><br>
+    <table>
+       <tr>
+           <td style=" width: 100%;text-align: left;"><h2> <span style="font-size: 50px; color: #2196F3">Q:</span> {{question_story.title}}</h2> </td>
+           <td> <img src="/static/image/question/{{question_story.image}}"  height="100x"></td>
+       </tr>
+        <tr>
+            <td style=" width: 75%;text-align: left;"> <li>Message: {{question_story.message}}</li></td>
+        </tr>
+    </table>
+
+
+    <div style="text-align: center;">
+        <a href="{{ url_for('vote_question_up',question_id=question_story.id ) }}">vote UP</a>
+                        &nbsp;&nbsp;{{ question_story.vote_number }}&nbsp;&nbsp;
+        <a  href="{{ url_for('vote_question_down',question_id=question_story.id ) }}">vote DOWN</a>&nbsp;&nbsp;&nbsp;
+        tags:
+            {% for tag in all_tags_for_a_question %}
+                {{ tag.name }}
+            {% endfor %}
+      <a href="{{ url_for('delete_question', question_story=question_story, question_id=question_story.id) }}">Delete this question</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{{ url_for('edit_question',question_id=question_story.id ) }}">Edit question</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{{ url_for('add_comment_to_question_story',question_id=question_story.id ) }}">Add new comment to question</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{{ url_for('add_question_tag',question_id=question_story.id ) }}">Add question TAG</a>
+
+    </div>
+
+
+    <table style=" width: 80%;">
+{#    <tr><td><h2>Comments:</h2></td></tr>#}
+    {% for comment in question_comment_stories %}
+       <tr>
+           <td style=" width: 70%;text-align: left;"> <li>{{ comment.message }} </li></td>
+           <td> ({{ comment.submission_time }})
+                <a href="{{ url_for('delete_comment', comment_id=comment.id, question_id=question_story.id) }}"
+                                    onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+           </td>
+       </tr>
+    {% endfor %}
+    </table>
+
+{#incep raspunsurile#}
+
+
+<br><br>
+     <hr class="hr1">
+<br><br>
+
+  {% for answer in answer_story %}
+        <table style="text-align: left;">
+           <tr>
+               <td><img src="/static/image/answer/{{answer.image}}" height="100x"></td>
+               <td style=" width: 100%;text-align: left;"><h2> <span style="font-size: 50px; color: #ff0000">A:</span> {{answer.message}}</h2> </td>
+           </tr>
+        </table>
+      <div style="text-align: center;">
+      <a href="{{ url_for('delete_answer',answer_id=answer.id) }}">Delete answer</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="{{ url_for('edit_answer',answer_id=answer.id ) }}">Edit answer</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="{{ url_for('add_answer',question_id=question_story.id ) }}">Add answer</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="{{ url_for('add_comment_to_answer_story',answer_id=answer.id ) }}">Add comment </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="{{ url_for('vote_answer_up',answer_id=answer.id ) }}">vote UP</a>
+                {{ answer.vote_number }}
+      <a href="{{ url_for('vote_answer_down',answer_id=answer.id ) }}">vote DOWN</a>
+
+            {% if session['user_id']  == answer['user_id'] %}
+                {% if answer['accepted'] == 5 %}
+                            <i class="fas fa-check-square"></i>
+                                <button>
+                                <a href="/mark-accepted/{{answer['id']}}/{{  answer['question_id'] }}">Mark as accepted</a>
+                                </button>
+                {% else %}
+                            <button>
+                               <a href="/unmark/{{answer['id']}}/{{  answer['question_id'] }}">Unmark</a>
+                            </button>
+                {% endif %}
+            {% endif %}
+
+
+
+
+      </div>
+
+<table style=" width: 80%;">
+{#    <tr><td><h2>Comments:</h2></td></tr>#}
+
+        {% for answer_comment_story in all_answers_comments_stories  %}
+            {% if answer_comment_story.answer_id == answer.id %}
+                <tr>
+                    <td style=" width: 60%;text-align: left;"><li>  {{ answer_comment_story.message }} </td>
+
+                    <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('edit_comment',comment_id=answer_comment_story.id ) }}">edit</a>
+                     - {{ answer_comment_story.edited_count }} time(s)
+                     &nbsp;&nbsp;<a href="{{ url_for('delete_comment', comment_id=answer_comment_story.id)}}"
+                           onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                    &nbsp;&nbsp;({{ answer_comment_story.submission_time }})
+                    </td>
+
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+
+</table>
+
+
+    {% endfor %}
+<br><br><br><br>
+
+
+
+
+
+
+
+{% endblock %}
