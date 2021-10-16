@@ -1,5 +1,4 @@
-
-![askmate sc1](https://user-images.githubusercontent.com/70142353/137590989-0bf9644e-0043-49ff-8fda-05fd659a1523.jpg)
+![askmate3](https://user-images.githubusercontent.com/70142353/137591026-a35cde80-a68d-4b82-8d43-d64f11131632.jpg)
 
 
 # AskMate (sprint 2)
@@ -19,7 +18,8 @@ As last week the management is handing out a **prioritized list** of new user st
 - CSS basics
 - how to work according to the Scrum framework,
 - how to create a _sprint plan_.
-![askmate3](https://user-images.githubusercontent.com/70142353/137590991-f7ef2644-716e-4609-994e-cb224d80b0e7.jpg)
+
+![askmate sc1](https://user-images.githubusercontent.com/70142353/137591028-ffdda33a-0b42-489b-aadb-76bc3625142e.jpg)
 
 
 
