@@ -1,7 +1,5 @@
 
-![askmate sc1](https://user-images.githubusercontent.com/70142353/137590927-9801126e-3a96-4ae9-97b5-21de30df892b.jpg)
-![askmate3 s](https://user-images.githubusercontent.com/70142353/137590938-9b722544-df96-40b3-935e-844a06f62216.jpg)
-![askmate3](https://user-images.githubusercontent.com/70142353/137590946-c9ad0836-0dfd-4407-8661-9bed887f7c2e.jpg)
+![askmate sc1](https://user-images.githubusercontent.com/70142353/137590989-0bf9644e-0043-49ff-8fda-05fd659a1523.jpg)
 
 
 # AskMate (sprint 2)
@@ -21,6 +19,9 @@ As last week the management is handing out a **prioritized list** of new user st
 - CSS basics
 - how to work according to the Scrum framework,
 - how to create a _sprint plan_.
+![askmate3](https://user-images.githubusercontent.com/70142353/137590991-f7ef2644-716e-4609-994e-cb224d80b0e7.jpg)
+
+
 
 ## Tasks
 
@@ -150,6 +151,9 @@ All data should be persisted in a PostgreSQL database in the following tables (y
 *message:* The comment text<br>
 *submission\_time:* The date and time the comment was posted or updated<br>
 *edited\_number::* How many times this comment was edited<br>
+
+![askmate3 s](https://user-images.githubusercontent.com/70142353/137590994-a17764ff-9098-4d7f-9b03-dc015dca79e0.jpg)
+
 
 ### Database and sample data
 
