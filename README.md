@@ -1,3 +1,9 @@
+
+![askmate sc1](https://user-images.githubusercontent.com/70142353/137590927-9801126e-3a96-4ae9-97b5-21de30df892b.jpg)
+![askmate3 s](https://user-images.githubusercontent.com/70142353/137590938-9b722544-df96-40b3-935e-844a06f62216.jpg)
+![askmate3](https://user-images.githubusercontent.com/70142353/137590946-c9ad0836-0dfd-4407-8661-9bed887f7c2e.jpg)
+
+
 # AskMate (sprint 2)
 
 ## Story
